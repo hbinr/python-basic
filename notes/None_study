@@ -1,16 +1,16 @@
-NoneÊÇÒ»¸öÌØÊâµÄ³£Á¿¡£
+Noneæ˜¯ä¸€ä¸ªç‰¹æ®Šçš„å¸¸é‡ã€‚
 
-NoneºÍFalse²»Í¬¡£
+Noneå’ŒFalseä¸åŒã€‚
 
-None²»ÊÇ0¡£
+Noneä¸æ˜¯0ã€‚
 
-None²»ÊÇ¿Õ×Ö·û´®¡£
+Noneä¸æ˜¯ç©ºå­—ç¬¦ä¸²ã€‚
 
-NoneºÍÈÎºÎÆäËûµÄÊý¾ÝÀàÐÍ±È½ÏÓÀÔ¶·µ»ØFalse¡£
+Noneå’Œä»»ä½•å…¶ä»–çš„æ•°æ®ç±»åž‹æ¯”è¾ƒæ°¸è¿œè¿”å›žFalseã€‚
 
-NoneÓÐ×Ô¼ºµÄÊý¾ÝÀàÐÍNoneType¡£
+Noneæœ‰è‡ªå·±çš„æ•°æ®ç±»åž‹NoneTypeã€‚
 
-Äã¿ÉÒÔ½«None¸´ÖÆ¸øÈÎºÎ±äÁ¿£¬µ«ÊÇÄã²»ÄÜ´´½¨ÆäËûNoneType¶ÔÏó¡£
+ä½ å¯ä»¥å°†Noneå¤åˆ¶ç»™ä»»ä½•å˜é‡ï¼Œä½†æ˜¯ä½ ä¸èƒ½åˆ›å»ºå…¶ä»–NoneTypeå¯¹è±¡ã€‚
 
-¿´Ò»ÏÂ²©¿Í
+çœ‹ä¸€ä¸‹åšå®¢
 https://blog.csdn.net/qq_33094993/article/details/53386078

@@ -23,14 +23,14 @@ print("将十进制转为二进制:"+bin(2))  # 0b10   即2
 print("将八进制转为二进制:"+bin(0o10))  # 0b1000 即8
 print("将十六进制转为二进制:"+bin(0x10))  # 0b10000 即16
 
-print("bin(2)二进制是以str存储的:" + bin(2))  #str   二进制数是字符串类型
+print("bin(2)二进制是以str类型存储的:" + bin(2))  #str   二进制数是字符串类型
 
 #将其他进制转为八进制  oct()
 print("将十进制转为八进制:"+oct(2))  # 0b10   即2
 print("将八进制转为八进制:"+oct(0o10))  # 0b1000 即8
 print("将十六进制转为八进制:"+oct(0x10))  # 0b10000 即16
 
-print("oct(2)二进制是以str存储的:" + oct(2))  #0o2   八进制数是字符串类型
+print("oct(2)二进制是以str类型存储的:" + oct(2))  #0o2   八进制数是字符串类型
 
 #将其他进制转为十进制  int()
 # print("将二进制转为十进制:"+int(0b10))  # 2 这行代码会报错，因为十进制数在python是以int型存储的,TypeError: can only concatenate str (not "int") to str
