@@ -51,3 +51,20 @@ print("My name is %s and weight is %d kg!" % ('Zara', 21))
 # operateStr[0] = 10  #TypeError: 'str' object does not support item assignment
 
 
+#三、字符串的函数
+#1、len()表示字符串的大小,返回值为int
+print(len(operateStr)) #11
+#2、max() min() 最大、最小
+print(max(operateStr))  # r
+print(ord('r'))  #r的ASCII的值为114
+print(ord('W'))  #W的ASCII的值为87
+print(ord('w'))  #W的ASCII的值为119   小写字母的ASCII值的=大写ASCII值+32
+print(min(operateStr))  # '' 返回空格
+#print(ord(1))  #报错 入参必须为str,且是单个字符
+print(ord('1'))  #49
+# print(ord('11')) #报错  TypeError: ord() expected a character, but string of length 2 found ,ord()希望得到一个字符，但是找到了长度为2的字符串
+
+# ord()源码
+# def ord(*args, **kwargs): # real signature unknown
+#     """ Return the Unicode code point for a one-character string. """
+#     pass
