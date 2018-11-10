@@ -43,13 +43,16 @@ print(set1 ^ set2)   #{1, 2, 5, 7}
 
 #实际问题：怎么去除海量列表里重复元素？
 a = [11,2,2,2,2,33,3,33,3,444,44,4,4,4,44,4]
-b = set(a);
+b = set(a)
 print(b)  #{33, 2, 3, 4, 11, 44, 444}  此时已经求掉了重复元素，但是结果是一个set集合，实际中想要的是一个list
 c = [i for i in b]  #便利集合,将获取的值存到c列表中
 print(c)  #[33, 2, 3, 4, 11, 44, 444]
 # 三、函数操作
 #1、len  取大小
 print(len(set1))  #5
+
+#get()  set集合并不支持这样的操作，本事set就是无序的，所以是没有序号的，即不支持切片操作也不支持get()，但是字典dict支持
+# print(set1.get(1))  #AttributeError: 'set' object has no attribute 'get'
 
 #2、add  添加
 set1.add("Hello")
