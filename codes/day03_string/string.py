@@ -17,7 +17,7 @@ print('''let's go''') #使用三引号
 
 
 #二、字符串的运算
-operateStr = "Hello World";
+operateStr = "Hello World"
 #1、获取某个字符
 print(operateStr[0])#结果为H,下标为0的字符
 
