@@ -1,4 +1,4 @@
-#set() 函数创建一个【无序不重复】元素集，也无法通过数字进行索引，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。
+#set 用'{}'来定义，是【无序不重复】元素集，也无法通过数字进行索引，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。
 
 #一、定义
 print({1,2,3,'str'})         #{1, 2, 3, 'str'}
@@ -6,13 +6,16 @@ print({1,2,3,'str'})         #{1, 2, 3, 'str'}
 print({1,2,3,'str',2,True})  #{1, 2, 3, 'str'}
 print({1,2,3,'STR',2,True})  #{1, 2, 3, 'STR'}
 
-print({True,2})              #{True, 2}
+print({True,2})              #{True, 2}  TODO
 print({2,True})              #{True, 2}
 
+print({True})                #{True}  TODO
+print({True,True})           #{True}
 #空集合
 print(type({}))   #<class 'dict'>
 
 print(type(set()))  #<class 'set'> 虽然集合在python的定义是使用'{}'来界定的，但是定义一个空集合，并不是'{}'，而是set()
+
 
 #无序
 # {1,2,3,4}[0]  #TypeError: 'set' object does not support indexing, 不支持序号，所以是无序的
@@ -33,7 +36,8 @@ print(6 not in set1)  #True
 print(set1 - set2)    #{1, 2, 5}
 
 #4、集合的交集  '&'，取集合公共的部分
-print(set1 & set2)   #{3, 4}
+print(set1 & set2)    #{3, 4}
+# print(set1 && set2) #SyntaxError: invalid syntax 语法错误， &&表示逻辑与，不能用于集合的取交集运算
 
 #5、集合的并集  '|'，合并两个集合
 print(set1 | set2)   #{1, 2, 3, 4, 5, 7}
@@ -53,7 +57,7 @@ print(len(set1))  #5
 
 #2、add  添加
 set1.add("Hello")
-print(set1)   #{1, 2, 3, 4, 5, 'Hello'}
+print(set1)   #{1, 2, 3, 4, 5, 'Hello'} ，追加
 #3、update 修改  update() 方法用于修改当前集合，可以添加新的元素或集合到当前集合中，如果添加的元素在集合中已存在，
 # 则该元素只会出现一次，重复的会忽略。
 set1.update(set2)
@@ -63,3 +67,7 @@ print(set1 == set1|set2)   #True   set1.update(set2)执行后,set1  ==  set1 | s
 #4、remove 删除
 set1.remove(1)
 print(set1)   #{2, 3, 4, 5, 'Hello', 7}
+
+#5、最大,最小元素
+print(max(set2))  #7
+print(min(set2))  #3

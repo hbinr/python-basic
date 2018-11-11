@@ -2,7 +2,7 @@
 print(type(True)) #<class 'bool'>
 print(bool)   #<class 'bool'>
 
-print(int(True))  #1  bool转为十进制表示1或0
+print(int(True))  #1  bool转为十进制表示 1，False:0l
 
 print(bool(1)) #True
 print(bool(1.2)) #True

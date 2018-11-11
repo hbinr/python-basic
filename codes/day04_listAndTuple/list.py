@@ -47,4 +47,5 @@ print(len(list)) #5
 #2、max() min() 最大、最小
 # print(max(list))  # 报错  TypeError: '<' not supported between instances of 'float' and 'str'  不同的数据类型无法进行比较
 print(max([1,2,4,99]))  #99
-print(max(['a','2','4','A'])) #a  比较ASCII值
+print(max(['a','2','4','A'])) #a:97，2:50，4:52，A:65。比较ASCII值  ord('2')
+print(ord('4'))

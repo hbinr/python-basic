@@ -25,7 +25,7 @@ print(operateStr[0])#结果为H,下标为0的字符
 print(operateStr[0:5])#结果为Hello，数字为字符所在的下标位置(左开右闭)
 
 #获取World
-print(operateStr[6:]) #正向
+print(operateStr[6:]) #正向 切片操作
 print(operateStr[6:11]) #正向
 print(operateStr[-5:]) #逆向  '-'表示从末尾开始，下标为从1开始 ，
 print("2222"+operateStr[-5:-0]) #结果为2222，不存在'-0'位
