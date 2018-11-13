@@ -75,9 +75,7 @@ dict4.update()
 print(dict4)    #{'sex': 'male', 'name': 'Tom', 'age': '20'}
 
 
-
 #4、pop() 不同于set集合，dict的删除是pop()，而不是remove()
-
 print(dict1)   #删除前：{1: 'one', 2: 'two', '3': '新增的'}
 
 dict1.pop("3")

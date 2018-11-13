@@ -1,12 +1,14 @@
 #Python运算符有：算术运算符、赋值运算符、比较(关系)运算符、逻辑运算符、成员运算符、身份运算符、位运算符
 
+#所有变量的位操作都是通过强制转换成bool实现的，并且表达式的值是从左到右第一个能够确定表达式的值的变量
+
 
 #一、算术运算符 + - * / % // **
 print(5%2)   #1
 print(2**2)  #4  2的2次方
 print(2**5)  #32  2的5次方
 
-#二、赋值运算符   = ，+=，-=，*=，/=，%=，//=，**=
+#二、赋值运算符   = , += , -= , *= , /= , %= , //= , **=
 a = 1
 a = a + 1  #2 相当于a+=1，值得注意的是在python中是没有++或者--这两个运算符
 
@@ -14,7 +16,7 @@ b = 2
 b**=3  #8
 print(b)
 
-#三、比较(关系)运算符 ,返回结果位bool类型   == 、!= 、> 、< 、>= 、<=
+#三、比较(关系)运算符 ,返回结果为bool类型   == , != , > , < , >= ,<=
 b += b >= 2   #9   先执行 b>=2 结果为True，然后执行b = b + True，即8 + 1
 print(b)
 #并不是只有数字才能做比较运算
@@ -24,10 +26,10 @@ ord('b')    #98   但是ord()是作用于单字符的。如果是字符串比较
 
 print('abc' >= 'abd')    #False  ，在python中，字符串比较时，是单个字符一一去比较
 
-print([1,3,2] > [1,2,5])    #True  ，1 > 1为False;3 > 2为True;2 > 5为False  结果怎么返回True？？
+print([1,3,2] > [1,2,5])    #True  ，1 > 1为False;3 > 2为True;2 > 5为False  结果怎么返回True？？详见：notes -> list比较源码分析
 # print((1,3,2) > [1,2,5])  #TypeError: '>' not supported between instances of 'tuple' and 'list'
 print((1,3,2) > (1,2,5))    #True
-#四、逻辑运算符 ,返回结果位bool类型   and   or   !
+#四、逻辑运算符 ,返回结果为bool类型   and  , or  , !
 #1、and  且  都为True(Flase)，结果才为True(False)
 flag = True and True
 print("True and True 的结果：",flag)  #True
@@ -57,3 +59,60 @@ print("not True 的结果：",flag)  #True
 
 flag = not not  False
 print("not not False 的结果：",flag)  #False
+
+#并不是只有bool类型才能做逻辑运算
+flag = '1' and 2
+print("'1' and 2 做逻辑运算 结果：",flag)   #2  and是要全部为真才为真，所以and返回的是最后一个判断为true的值
+
+flag = 'hello' or 2
+print("'hello' or 2 做逻辑运算 结果：",flag)   #"hello"  即True  or是要只要有真结果就为真，所以or返回的是第一个判断为true的值，之后的值就不再判断了
+
+flag = [] or {1,2,3}
+print("[] or {1,2,3} 做逻辑运算 结果：",flag)   #{1, 2, 3}  即True
+
+flag = set() and {}
+print("set() and {} 做逻辑运算 结果：",flag)   #set() 即False
+# 总结一句话就是：无论操作符是哪个，最后的结果一定是按照计算顺序能最快判断出结果的那个表达式决定的
+
+#五、成员运算符 ,返回结果为bool类型   in , not in
+list = [1,2,3,"one","two"]
+flag = 1 in list
+print("成员运算符 'in' 结果：",flag)  #True
+
+flag = 'three' not in list
+print("成员运算符 'not in' 结果：",flag)  #True
+
+#注意：用于字典时,成员运算符作用的是  key
+dict = {1:"one","2":"two"}
+flag = 1 in dict
+print("成员运算符用于字典时, 1 结果为：",flag)  #True
+flag = "one" in dict
+print("成员运算符用于字典时,'one' 结果为：",flag)  #False
+#六、身份运算符 ,  返回结果为bool类型   is, is not
+a = 1
+b = 2
+flag = a is b
+print("身份运算符 'is' 的结果：",flag)    #False  比较的是地址，并不是值
+
+a = {1,2,3}
+b = {2,1,3}
+flag = a == b
+print("两个集合比较,关系运算符 '==' 的结果：",flag)   #True   a,b两个集合的元素顺序都不一样，为什么结果为True呢？
+                                                  # 因为集合是无序的，且'=='比较的是值，所以a == b
+flag = a is b
+print("两个集合比较,身份运算符 'is' 的结果：",flag)   #False  is运算符比较的是地址
+print(id(a))   #a的地址为：38576872
+print(id(b))   #a的地址为：44670312   可见，两个集合的地址都不一样，所以a is b的结果为False
+
+c = (1,2,3)
+d = (2,1,3)
+flag = c == d
+print("两个元组比较,关系运算符 '==' 的结果：",flag)   #False   c,d为元组，而元组是有序的，所以结果为False
+flag = c is b
+print("两个元组比较,身份运算符 'is' 的结果：",flag)   #False  is运算符比较的是地址
+print(id(c))   #a的地址为：38576872
+print(id(d))   #a的地址为：44670312   可见，两个集合的地址都不一样，所以a is b的结果为False
+
+
+
+#七、 位运算符
