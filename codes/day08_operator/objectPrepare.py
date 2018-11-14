@@ -16,3 +16,5 @@ print("isinstance()判断类型,结果：",isinstance(a,(str,int,bool)))    #Tru
 
 # print("isinstance()判断类型,结果：",isinstance(a,[str,int,bool]))   #TypeError: isinstance() arg 2 must be a type or tuple of types
 
+
+#判断类型总结：面向对象编程中，不能使用type()来判断类型，因为type()是无法判断子类的类型的
