@@ -1,48 +1,74 @@
-#表达式(Expression)是运算符(opetator)和操作数(operand)所构成的序列
-#以下都为表达式：
-1 + 2 + 3
+'''
+流程控制--条件控制
+1、if else
+if condition:
+    pass
+else:
+    pass
+2、if elif else ,elif是与if配对出现的
+if condition1:
+    pass
+elif condition2:
+    pass
+else:
+    pass
+3、python中没有switch
+   可以使用字典方式来代替
+'''
 
-a = 1 + 2 * 3
-b = 1 and 2
-c = 2 in [1,2,3]
+print("请输入1、2、3中的任意值")
+a = input()
+# a = int(a)
+if a == 1:
+    print("输入值为 1")
+elif a == 2:
+    print("输入值为 2")
+elif a == 3:
+    print("输入值为 3")
+else:
+    print("非法输入！")
 
-#思考
-a = 1
-b = 2
-c = 3
-d = a + b * c
-print("a + b * c的结果：",d)   #7
-e = a or b and c
-print("a or b and c的结果：",e)   #1   本质: a or (b and c)   -> a or 3
+#在实际操作中，从命令行接收的值都为str类型，所以上述代码无论输入什么值都是返回 "非法输入!"。所以需要将str转为int，调用int()即可
 
-#1、表达式的优先级
-# 运算符	               描述
-# **	        指数 (最高优先级)
-# ~ + -	        按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@)
-# * / % //	    乘，除，取模和取整除
-# + -	        加法减法
-# >> <<	        右移，左移运算符
-# &	            位 'AND'
-# ^ |	        位运算符
-# <= < > >=	    比较运算符
-# <> == !=	    等于运算符
-# = %= /= //= -= += *= **=	赋值运算符
-# is is not	    身份运算符
-# in not in	    成员运算符
-# not and or 	逻辑运算符
+'''
+    利用字典实现switch
+'''
+def taskForSunday():
+    print("今天休息")
+def taskForRest():
+    print("今天休息")
+def taskForChinese():
+    print("今天上语文课")
+def taskForMath():
+    print("今天上数学课")
+def taskForEnglish():
+    print("今天上英语课")
+def taskForDefault():
+    print("输入错误。。。。")
 
-#1)、逻辑运算符优先级：not > and  >  or
+switchDic = {"Sunday":taskForRest,
+             "Monday":taskForChinese,
+             "Tuesday":taskForMath,
+             "Wednesday":taskForEnglish,
+             "Tursday":taskForEnglish,
+             "Friday":taskForEnglish,
+             "Saturday":taskForRest
+             }
 
 
-#2、解释器解析表达式优先级的顺序
-#1)、同级别的运算符，从左向右解析，即左结合
-#但是如果这个表达式里有赋值运算符'='，则变为右结合，即'=' 右边先将结果计算出来，然后将结果赋值给 '=' 左边
+switchDic.get("Sunday",taskForDefault)()   #今天休息
+switchDic.get(213,taskForDefault)()        #输入错误。。。。 测试时，每次都得写.get(xx,taskForDefault)()，所以优化一下
 
-#2)、不同级别的运算符，按照优先级从高到低进行运算
+#优化后
+def switchDicNew(var):
+    return {
+            "Sunday":taskForRest,
+            "Monday":taskForChinese,
+            "Tuesday":taskForMath,
+            "Wednesday":taskForEnglish,
+            "Tursday":taskForEnglish,
+            "Friday":taskForEnglish,
+            "Saturday":taskForRest
+    }.get(var,taskForDefault)()
 
-#3)、()，括号的优先级最高
-
-#思考，以下表达式的计算顺序为？
-result = not a or b + 2 == c
-print("not a or b + 2 == c的结果为:",result)   #False
-(not a) or ((b+2) == c)
+switchDicNew("Friday")
