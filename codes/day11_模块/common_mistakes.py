@@ -1,19 +1,20 @@
 '''
-    在大型软件开发时，不可能把所有代码放在通过一个文件下，也不可能是单一的几个文件就能囊括整个项目需要的代码。在实际开发中，
-根据功能的不同，会将代码分为不同的模块来进行开发和维护，每个模块间可能会有调用联系，比如A模块需要调用B模块返回的结果来
-进行相应的业务处理。
-    对于大型系统，可以是包来管理多个模块，包是Python用来组织命名空间的重要方式，可以看作是包含大量Python程序模块的文件夹。
-    在包的每个子文件夹中都必须包含一个__init__.py文件，该文件可以是一个空文件夹，仅用于表示当前文件夹是一个包。
-    __init__.py文件的主要用途是设置__all__变量以及执行初始化包所需的代码，其中__all__变量定义的对象可以在使用
-"from xxx import *"时被全被正确导入。__all__通常时一个列表，必须是序列,python通过序号来找到相应的模块、函数或变量。不能是集合
-    在导入包的时候，python就会自动__init__.py文件，进行初始化
+    本模块主要记录包和模块常见的错误
+
 '''
-#练习1:导入test包下的test1和test2模块
-# from test import *     #This is a test1 module
-                        #This is a test2 module   运行本程序的结果，导入test包的时候就执行了__init__.py文件
 
-#练习2:打印当前时间
-import  test
+#1、循环导入，类似Java使用maven管理依赖时，循环导入依赖。无论时直接导入还是间接导入，都有可能出现循环导入的情况。
 
-curr_date = test.datetime.datetime.now()
-print("当前时间为:",curr_date)   #当前时间为: 2018-11-19 15:34:26.928746 调用时要加上相对路径 'test.datetime'
+#练习：cycle1导入common_mistakes模块，而common_mistakes同时也导入了cycle1模块
+import day11_模块.cycle1 as cy
+common  = "common_mistakse"
+print("This is common_mistakse module")
+print("I want to cycle1's cy1 variable",cy.cy1)
+
+'''
+报错截图详见: pictures/循环导入模块案列.png。
+解析:运行common_mistakse.py模块，在程序行：print("I want to cycle1's cy1 variable",cy.cy1)打印cy.cy1报错，然后堆栈信息
+追朔到cycle1.py模块，而改模块的代码第一行执行了import day11_模块.common_mistakes as common，
+所以又要去运行一次common_mistakse.py模块，所以还会再次遇到上述问题，就造成循环导入，程序报错了
+'''
+#2、待续
