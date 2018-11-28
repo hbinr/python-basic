@@ -44,6 +44,7 @@ print(list) #['2', 2.5, 'Hello', True, 7j] ,第一位变为了'2'
 #三、列表的函数
 #1、len()表示列表的大小,返回值为int
 print(len(list)) #5
+
 #2、max() min() 最大、最小
 # print(max(list))  # 报错  TypeError: '<' not supported between instances of 'float' and 'str'  不同的数据类型无法进行比较
 print(max([1,2,4,99]))  #99
