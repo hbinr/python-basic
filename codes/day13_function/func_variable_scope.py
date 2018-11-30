@@ -41,3 +41,53 @@ print (variable)
 '''
     3、作用域的类型
 '''
+
+#1、L(local)局部作用域  定义在函数def内的变量
+
+#2、E(enclosing)嵌套作用域  这个是相对于局部作用域而言的，在实际开发中可能会嵌套定义函数。嵌套作用域是局部作用域的上级def函数内的变量
+
+#3、G(global)全局作用域  使用global关键字声明的变量
+'''
+    global关键字在ptyhon中是定义全局变量
+    在之前的学习，局部变量很容易会覆盖全局变量的值。
+    但是现在有这样一个需求，定义的全局变量要参与业务逻辑，部分函数中会使用全局变量，并改变其的值以供其他函数调用
+    在python中可以把局部变量变成全局变量，加global关键字
+'''
+def demo():
+    global a
+    a = 1
+    c = 2
+
+#函数外部调用c,打印结果
+# demo()
+# print(c)   #NameError: name 'c' is not defined
+
+
+#函数外部调用a,打印结果
+demo()
+print(a)     #1
+
+
+
+#4、B(built-in)内置作用域  定义在built-in内置函数、内置模块里的变量
+
+#练习：作用域链
+
+c = 1
+
+def func1():
+    # c = 2
+    def func2():
+        # c = 3
+        print(c)
+    func2()
+func1()
+
+'''
+结果为：3     先找Local作用域，发现c = 3 所以打印
+
+注释掉c = 3后，结果为：2   local没有变量，则去找enclosing嵌套作用域
+
+注释掉c = 2后，结果为：1  local和enclosing都没有变量，则去找global全局作用域
+
+'''
