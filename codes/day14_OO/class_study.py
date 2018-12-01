@@ -13,6 +13,7 @@ class Student:
     '''
         官方推荐加self参数，表示该方法为实例方法，self在python中表示当前实例
         但是self并不是关键字，你也可以定义为this，只不过在ptyhon中规范定义为self
+        
         __init__方法是特殊的实例方法,类似Java中的构造函数，在创建实例的时候会默认执行
         和普通的函数相比，在类中定义的函数只有一点不同，就是第一个参数永远是实例变量self，
         并且，调用时，不用传递该参数
@@ -34,10 +35,10 @@ class Student:
 
 student1 = Student('大雄',15,'男')    #学生信息，姓名：大雄，年龄：15，性别：男
 
-#操作类的变量
+#操作实例变量
 student1.name = '小冰'
 
-#操作类的方法
+#操作实例方法
 student1.do_homework(student1.name)   #小冰做作业
 
 #通过以上代码，直接修改了student1实例的姓名，在实际开发中是不允许内部属性被外部访问的，具体看access_restriction.py文件
