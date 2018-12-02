@@ -1,4 +1,5 @@
 '''
+    OO_2  
     构造函数：
     __init__()，用来为数据成员设置初始值或进行其他必要的初始化工作，在实例化对象时自动被调用和执行。如果用户没有设计
     构造函数，Python会提供一个默认的构造函数用来进行必要的初始化工作。
@@ -11,7 +12,7 @@ class Student():
 
     def __init__(self):
         print("进入构造函数")
-        # return 'student1实例'     #如果在构造函数增加返回值，在实例化对象时，结果会怎样？
+        # return 'student1实例'     #如果在构造函数增加返回值，在实例化对象时，会报错
 
     def my_print(self):
         print("This is my_print function")
@@ -37,4 +38,4 @@ class Teacher():
 
 #通过构造函数，Teacher类在实例化对象，传入不同的参数就会实例化不同的对象
 teacher = Teacher('Tom',20)          #Tom:20
-teacher = Teacher('Tony',22)         #Tony:22
+teacher2 = Teacher('Tony',22)         #Tony:22
