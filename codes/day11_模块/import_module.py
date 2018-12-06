@@ -5,17 +5,16 @@ Python中导入模快
 1、import modules(模块名字)   #导入整个模块，这种导入方式比较占用内存
 
 2、import modules (模块名字)  as  XX               #这里是导入整个模块的同时给它取一个别名，因为有些模块名字比较长，
-                                                     用一个缩写的别名代替在下次用到它时就比较方便
-3、from modules(模块名字)  import func(方法）或者变量      #从一个模块里导入方法或者变量 ，你要用到模块里的什么方法
-                                                             或者变量就从那个模块里导入那个方法或者变量，这样占用的内存就比较少
+                                                   用一个缩写的别名代替在下次用到它时就比较方便
+3、from modules(模块名字)  import func(方法）或者变量      #从一个模块里导入方法或者变量 ，你要用到模块里的哪个方法
+                                                           或者变量就从模块里导入哪个方法或者变量，这样占用的内存就比较少
 也可以用别名表示 ： from modules(模块名字)  import func(方法）或者变量  as   XX
 
-也支持from 包名 import 模块名  这种写法不太推荐，和 import modules(模块名字)一样了，既然有这个from import用法，肯定有它的用处
-4、from package.modules   import func(方法）或者变量     #从一个包的模块里导入方法或者变量  这个方法跟上面那种基本一样，占用的内存也比较少
-
-也可以用别名表示，from modules(模块名字)  import func(方法）或者变量  as   XX
-
+也支持from 包名 import 模块名  这种写法不太推荐，和 import modules(模块名字)一样了，既然有这个from xxx import  xxx用法，
+肯定有它的用处
 '''
+
+
 
 '''
 导入模块其实就是告诉Python解释器去解释那个py文件，注意：包和模块是不会被重复导入的
@@ -28,7 +27,7 @@ Python中导入模快
 import codes.day04_listAndTuple.list as ls           #导入list模块
 from codes.day05_set.set import set1 as set         #导入set模块下的set1变量
 from codes.day06_dict.dict import *                 #导入dict模块下__all__列表里的变量，也就是说，以*导入时，package内
-                                                     # 的module是受__init__.py限制的。
+                                                    #的module是受__init__.py限制的。
 from codes.day06_dict.dict import list,tuple,set,\
     dict                                            #但是python不建议使用import *来导入，如果需要导入多个变量，可以用逗号分隔，
                                                     #用反斜杠'\'来换行  也不推荐 。。使用()来包裹要导入的变量即可:

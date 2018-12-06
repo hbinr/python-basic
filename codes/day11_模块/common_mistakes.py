@@ -9,11 +9,11 @@
 import day11_模块.cycle1 as cy
 common  = "common_mistakse"
 print("This is common_mistakse module")
-print("I want to cycle1's cy1 variable",cy.cy1)
+print("I want to print cycle1's variable",cy.cy1)
 
 '''
 报错截图详见: pictures/循环导入模块案列.png。
-解析:运行common_mistakse.py模块，在程序行：print("I want to cycle1's cy1 variable",cy.cy1)打印cy.cy1报错，然后堆栈信息
+解析:运行common_mistakse.py模块，在程序行：print("I want to cycle1's variable",cy.cy1)打印cy.cy1报错，然后堆栈信息
 追朔到cycle1.py模块，而改模块的代码第一行执行了import day11_模块.common_mistakes as common，
 所以又要去运行一次common_mistakse.py模块，所以还会再次遇到上述问题，就造成循环导入，程序报错了
 '''
