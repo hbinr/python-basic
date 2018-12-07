@@ -17,7 +17,7 @@ print(str_regx)          #anc\\sno-2s24
 '''
     1、re.findall用法， findall(pattern, string, flags=0)
     入参：pattern为传入正则表达式，string为传入要匹配的字符串，
-    flags为匹配的模式(默认为0)，其中re.S使匹配包括换行在内的所有字符。findall()函数是逐行匹配的。
+    flags为匹配的模式(默认为0)，findall()函数是逐行匹配的。
     
 '''
 #练习1：找到str_r里面的所有数字
@@ -29,7 +29,7 @@ print(result)         #['2', '2', '4']，返回的是列表，元素类型都为
     findall()返回的列表中，每个元素都是单个字符，如果想要返回多个字符(字符集或称为字符串)，通过数量词来
     控制
 '''
-#练习1：{number}
+#练习2：{number}
 str_regx = 'python 80284 java!,3.2w.32 golang24'
 result  = re.findall(r'[a-z]{3}',str_regx)
 print(result)          #['pyt', 'hon', 'jav']
@@ -49,17 +49,17 @@ print(result)          #['python', 'java', 'golang']
         非贪婪：也就是尽可能少匹配.{}后面加? 
 '''
 
-#练习2：  * 匹配0次或者多次，r'python*'这个表达式的含义是'*'前面的n可以出现0次或者多次
+#练习3：  * 匹配0次或者多次，r'python*'这个表达式的含义是'*'前面的n可以出现0次或者多次
 str_regx = 'pytho1python2pyt23pythonnnnnn222'
 result = re.findall(r'python*',str_regx)    #['pytho', 'python', 'pythonnnnnn']
 print(result)
 
-#练习3：  + 匹配1次或者多次，r'python*'这个表达式的含义是'+'前面的n可以出现1次或者多次
+#练习4：  + 匹配1次或者多次，r'python*'这个表达式的含义是'+'前面的n可以出现1次或者多次
 str_regx = 'pytho1python2pyt23pythonnnnnn222'
 result = re.findall(r'python+',str_regx)    #['python', 'pythonnnnnn']
 print(result)
 
-#练习4：  ? 匹配0次或者1次，r'python?'这个表达式的含义是'?'前面的n可以出现0次或者1次，常用于字符串去重
+#练习5：  ? 匹配0次或者1次，r'python?'这个表达式的含义是'?'前面的n可以出现0次或者1次，常用于字符串去重
 #注意：此处的'?'和'{}?'表示的不是同一个概念，后者是表示非贪婪模式
 str_regx = 'pytho1python2pyt23pythonnnnnn222'
 result = re.findall(r'python?',str_regx)    #['pytho', 'python', 'python']
