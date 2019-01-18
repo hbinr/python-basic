@@ -1,12 +1,12 @@
 '''
-    Python提供re模块，包含所有正则表达式的功能。由于Python的字符串本身也用\转义
+    Python提供re模块，包含所有正则表达式的功能。
     
     推荐博客：Python3 如何优雅地使用正则表达式
             https://www.cnblogs.com/LoveFishC/p/4218366.html
             https://www.cnblogs.com/LoveFishC/p/4218375.html
 '''
 import re
-#注意：'\'转义的坑
+#由于Python的字符串本身也用\转义，格外注意：'\'转义的坑
 s = 'anc\\sno-2s24'   #Python的字符串
 # 对应的正则表达式字符串变成：anc\sno-2s24
 #所以在最好用原始字符串来表示正则表达式
@@ -16,12 +16,13 @@ print(str_regx)          #anc\\sno-2s24
 
 '''
     1、re.findall用法， findall(pattern, string, flags=0)
-    入参：pattern为传入正则表达式，string为传入要匹配的字符串，
-    flags为匹配的模式(默认为0)，findall()函数是逐行匹配的。
+    pattern：正则表达式，
+    string：要匹配的字符串，
+    flags：匹配的模式(默认为0)，findall()函数是逐行匹配的。
     
 '''
 #练习1：找到str_r里面的所有数字
-result  = re.findall(r'\d',str_regx)
+result  = re.findall('\d',str_regx)
 print(result)         #['2', '2', '4']，返回的是列表，元素类型都为字符串
 
 '''
@@ -46,7 +47,7 @@ print(result)          #['python', 'java', 'golang']
     解析：Python中正则表达式默认是贪婪匹配的。
         正则表达式有贪婪与非贪婪的概念：
         贪婪：匹配尽可能多的字符
-        非贪婪：也就是尽可能少匹配.{}后面加? 
+        非贪婪：也就是尽可能少匹配  {}后面加?即可表示非贪婪模式 
 '''
 
 #练习3：  * 匹配0次或者多次，r'python*'这个表达式的含义是'*'前面的n可以出现0次或者多次
@@ -67,7 +68,7 @@ print(result)
 
 '''
     3、切分字符串
-    用正则表达式切分字符串比用固定的字符更灵活
+    用正则表达式切分字符串比split()更灵活
 '''
 
 #看正常的切分代码：

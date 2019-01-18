@@ -19,22 +19,23 @@ import  re
 '''
 str_regx = 'PythonPythonPythonPythonPythonPythonPython'
 
-result1 = re.findall(r'(Python){4}',str_regx)     #['Python'],(Python){4}是表示 PythonPythonPythonPython吗？
-print(result1)
+result1 = re.findall(r'(Python){4}',str_regx)     #(Python){4}是表示 PythonPythonPythonPython吗？
+print(result1)   #['Python']
 #测试下这个想法，将正则表达式改为PythonPythonPythonPython，发现结果是：['PythonPythonPythonPython']，
-result2 = re.findall(r'PythonPythonPythonPython',str_regx)     #['PythonPythonPythonPython']
-print(result2)
+result2 = re.findall(r'PythonPythonPythonPython',str_regx)
+print(result2)     #['PythonPythonPythonPython']
 ''' 
     好奇怪，那试试使用match()，运行后发现(Python){4}的确是表示PythonPythonPythonPython，
     为什么result1会是 ['Python'] 这种结果？？
     TODO
     
 '''
-result3 = re.match(r'PythonPythonPythonPython',str_regx)
+result3 = re.match('(Python){4}',str_regx)
 print(result3.group())    #PythonPythonPythonPython
 
-
-# import re
+'''
+    match()函数练习
+'''
 line = "Cats are smarter than dogs"
 matchObj = re.match( r'(.*) are (.*?) .*', line, re.M|re.I)
 if matchObj:
