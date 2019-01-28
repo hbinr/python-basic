@@ -56,7 +56,7 @@ print_two(name='小蕾', age=18, gender='女')
     在python中，入参为tuple，可变参数可以接收tuple里的每个序号对应值，平铺入参
     但是要注意入参方式
 '''
-
+print("-------------开始解包裹参数----------------")
 #测试2：输入一个tuple或list参数，不解包裹参数会出错吗？
 param_tuple = (1,2,3,4)
 param_list = [5,6,7,8]
@@ -72,3 +72,14 @@ print_one(param_list)     #入参为： ([5, 6, 7, 8],)
 #正确使用：
 print_one(*param_tuple)   #入参为： (1, 2, 3, 4)
 print_one(*param_list)    #入参为： (5, 6, 7, 8)
+
+
+#测试3： 入参为一个dict
+param_dict = {"name":"茸茸","age":18}
+print_two(**param_dict)
+'''
+print_two(**param_dict)结果为：
+入参类型为： <class 'dict'>
+name:茸茸
+age:18
+'''

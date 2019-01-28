@@ -1,10 +1,9 @@
 '''
-    OO_4
     私有成员和公有成员：
     在Class内部，可以有属性和方法，而外部代码可以通过直接调用实例变量的方法来操作数据，这样，就隐藏了内部的复杂逻辑。
     但是，从前面Student类的定义来看，外部代码还是可以自由地修改一个实例的name属性
 
-    如果让内部属性不被外部访问，可以把属性的名称前加上两个下划线__。只允许类本身访问，连子类都不可以访问。
+    如果内部属性不想被外部访问，可以把属性的名称前加上两个下划线__。这样只允许类本身访问，连子类都不可以访问。
     
     保护成员：属性的名称前加上一个下划线_，只有类及其子类可以访问。此变量不能通过from XXX import xxx 导入
 
@@ -15,7 +14,7 @@ class Student():
     def __init__(self, name, age, gendor):
         self.name = name      #公有成员
         self._age = age       #公有成员
-        self.__gendor = gendor      #公有成员
+        self.__gendor = gendor      #私有成员
 
 student1 = Student('茸儿',18,'女')
 
@@ -27,7 +26,7 @@ print(student1._age)       #18
 # print(student1.__gendor)   #AttributeError: 'Student' object has no attribute '__gendor'
 
 #查看student1对象的变量
-print(student1.__dict__)     #{'name': '茸儿', '_age': 18, '_Student__gendor': '女'}
+print(student1.__dict__)            #{'name': '茸儿', '_age': 18, '_Student__gendor': '女'}
 
 '''
     发现性别属性的变量名为:_Student__gendor，并不是我们显式定义的__gendor，所以在执行print(student1.__gendor)

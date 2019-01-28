@@ -1,8 +1,8 @@
 '''
-    OO_1 类和实例:
+    类和实例:
     和Java一样，定义类的关键字也是class
     class后面紧接着是类名，如class Student，类名通常是大写开头的单词，紧接着是(object)，表示该类是从哪个类继承下来的
-    定义好了Student类，就可以根据Student类创建出Student的实例，创建实例是通过类名+()实现的
+    定义好了Student类，就可以根据Student类创建出Student的实例，创建实例是通过类名 + ()实现的
 '''
 #定义Student类
 class Student:

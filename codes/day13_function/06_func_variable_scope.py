@@ -31,6 +31,7 @@ print(result)    #50  而不是3，虽然result名字相同，但是作用域不
 if True:
     variable = 100
     print (variable)
+
 print ("******")
 print (variable)
 #结果为：  虽然是在if语句中定义的variable变量，但是在if语句外部仍然能够使用
@@ -54,7 +55,7 @@ print (variable)
     在python中可以把局部变量变成全局变量，加global关键字
 '''
 def demo():
-    global a
+    global a    #局部变量a变为全局变量
     a = 1
     c = 2
 

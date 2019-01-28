@@ -1,5 +1,4 @@
 '''
-    OO_3
     类变量和实例变量
     类变量就是属于类的变量，是该类所有对象共享的，不属于任何一个对象。在定义类时，类变量一般不会定义在任何一个成员方法中。
     类变量可以通过类名或对象名访问，
@@ -26,7 +25,6 @@ class Student():
         print('test_self()中的实例变量：',name)
 
 student1 = Student('茸儿',20)
-student1.print_info('茸儿',20)    #茸儿 : 20
 
 #访问类变量
 print(Student.name)               #class's variable  通过类名访问
@@ -34,6 +32,9 @@ print(student1.__class__.name)    #class's variable 间接通过类名来访问
 #访问实例变量
 print(student1.name)              #茸儿
 print(student1.age)               #20
+
+#访问实例方法
+student1.print_info('茸儿',20)    #茸儿 : 20
 
 '''
     如果在定义实例变量时没有加self前缀，再次执行print(student1.name) 会是什么结果呢？
@@ -63,7 +64,7 @@ print(teacher1.__dict__)    #{}  结果是一个空字典，即teacher1对象里
     
 '''
 
-#看下类的__dict__
+#类的所有变量__dict__
 print(Teacher.__dict__)
 
 '''

@@ -15,7 +15,7 @@ def print_student_info(name, age, gender):
 print_student_info("大熊", age=1, gender='男')
 print_student_info("大熊",18, gender='男')
 print_student_info(name="大熊", age=18, gender='男')
-print_student_info(age=18, name="大熊", gender='男')  #参数顺序修改
+print_student_info(age=19, name="大熊", gender='男')  #参数顺序修改
 
 #以下是错误确的调用实例，位置参数必须在关键字参数的前面
 
