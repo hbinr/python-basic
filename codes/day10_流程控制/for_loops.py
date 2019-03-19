@@ -56,7 +56,10 @@ range(10,30,5)生成包含10、15、20、25的整数序列，循环从10到25，
 可以看出，当range用于for循环时，循环次数取决于range返回的整数序列的长度，每次循环的索引计数为整数序列的值。
 '''
 print() #换行
-#练习1：使用for循环求自然数的阶乘
+
+'''
+    练习1：使用for循环求自然数的阶乘
+'''
 n = input("请出入一个自然数：")
 n = int(n)
 result = 1
@@ -66,8 +69,9 @@ for i in range(1, n+1):
 # print("自然数"+ str(n) +"的阶乘为："+result)
 print("阶乘结果为：",result)
 
-#练习2：降序打印10以内的偶数。方法不限
-
+'''
+    练习2：降序打印10以内的偶数。方法不限
+'''
 #方法一：等差数列，公差为2
 # for x in range(10,-1,-2):  #最简单方式 range(10,-1,-2)生成一个等差数列，公差为2，注意序列的结束值为-1，因为不包含改结束值。降序打印用负数即可
 #     print(x)
@@ -78,8 +82,9 @@ for x in range(10,-1,-1):    #如果start > end，步长一定要写为负数，
 
 
 print(range(10,20))          #range(10,20)  其返回值不再是10，11，12，13......19 了，而是range(10,20)。应该python3版本后修改了
-
-#练习3： 间隔取值--已知a列表，打印[1，4，7，10]。重点：切片的使用
+'''
+    练习3： 间隔取值--已知a列表，打印[1，4，7，10]。重点：切片的使用
+'''
 a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 #方法一：for循环
@@ -88,3 +93,39 @@ for i in range(0, len(a), 3):
 #方法二：切片的使用
 b = a[0:len(a):3]     #arg1:索引起始位置， arg2:索引结束位置(不包含)， arg3: 步长
 print(b)
+
+
+
+
+'''
+    练习4:质数算法判断
+    for...else学习：else 中的语句会在循环正常执行完（即 for 不是通过 break 跳出而中断的）的情况下执行
+'''
+
+for n in range(2,100):
+    if n == 2:
+        print(n)
+        continue    #中途从break跳出，则连else一起跳出
+    for i in range(2,int(n**0.5)+1):
+        if (n%i) == 0:
+            break   #中途从break跳出，则连else一起跳出
+    else:
+        print(n)
+
+
+#也可以封装成一个函数
+def is_prime(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    for m in range(2,int(n ** 0.5) + 1):
+        if (n % m == 0):
+            return False
+    else:
+        return True
+
+
+for param in range(0,10):
+    if is_prime(param):
+        print("质数：",param)
