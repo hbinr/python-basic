@@ -17,7 +17,7 @@ continue
 n = 1
 while n <= 10:
     #输出的结果是列展示，如果想一行展示，需要在print()函数中加参数，print("",end = "")，是所以会列展示，是默认加的是end="/n"
-    print(n,end = " ")
+    print(n, end=" ")
     n += 1
 print("打印1~10结束")
 
@@ -25,10 +25,10 @@ print("打印1~10结束")
 #只打印5(包括5)之前的数
 m = 1
 while m <= 10:
-    print(m,end = " ")
+    print(m, end=" ")
     m += 1
     if m > 5:
-        break;
+        break
 print("只打印5(包括5)之前的数结束")
 
 
@@ -37,8 +37,17 @@ q = 1
 while q < 10:
     q += 1
     if q % 2 == 0:
-        continue;
+        continue
 
-    print(q,end = " ")
+    print(q, end=" ")
 
-print("除了5之外的数都打印")
+print("只打印10以内的奇数结束")
+
+#输出 1000 以内的斐波那契数列的程序如下：
+n = 1000
+a, b = 0, 1
+while a < n:
+    print(a, end=' ')
+    a, b = b, a + b
+
+print("输出1000以内的斐波那契数列结束")

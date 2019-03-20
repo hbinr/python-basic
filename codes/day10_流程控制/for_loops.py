@@ -13,7 +13,7 @@ for target_list in range(something): #这个语法类似Java里的for(int i=0;i 
 else:   #不满足循环条件执行，推荐不要加else
     pass
 range函数语法:
-range(start, end, step=1)，range会返回一个整数序列，
+range(start, end, step=1)，range会返回一个整数序列，可以理解为整数等差数列生成器
 statr为整数序列的起始值，end为整数序列的结束值，在生成的整数序列中，不包含结束值。
 step为整数序列中递增的步长，默认为1。
 '''
@@ -114,18 +114,18 @@ for n in range(2,100):
 
 
 #也可以封装成一个函数
-def is_prime(n):
+def is_prime(n ):
     if n < 2:
         return False
     if n == 2:
         return True
-    for m in range(2,int(n ** 0.5) + 1):
+    for m in range(2, int(n ** 0.5) + 1):
         if (n % m == 0):
             return False
     else:
         return True
 
 
-for param in range(0,10):
+for param in range(0, 10):
     if is_prime(param):
-        print("质数：",param)
+        print(f'{param} 是质数')
