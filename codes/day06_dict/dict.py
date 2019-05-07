@@ -19,11 +19,11 @@ print(type({}))    #<class 'dict'>
 print({1:1,"1":1113,"study":"python"})         #{1: 1, '1': 1113, 'study': 'python'}
 
 #3、嵌套定义  value值可以存放任意数据类型
-list = [1,2,True]
-tuple = (1,"hello","world",72j)
-set = {1,2,3}
-dict = {1:"one",2:200,"404":"Not found"}
-print({"1":"one","list":list,"tuple":tuple,"set":set,"dict":dict})   #{'1': 'one', 'list': [1, 2, True], 'tuple': (1, 'hello', 'world', 72j), 'set': {1, 2, 3}, 'dict': {1: 'one', 2: 200, '404': 'Not found'}}
+list_test = [1,2,True]
+tuple_test = (1,"hello","world",72j)
+set_test = {1,2,3}
+dict_test = {1:"one",2:200,"404":"Not found"}
+print({"1":"one","list":list_test,"tuple":tuple_test,"set":set_test,"dict":dict_test})   #{'1': 'one', 'list': [1, 2, True], 'tuple': (1, 'hello', 'world', 72j), 'set': {1, 2, 3}, 'dict': {1: 'one', 2: 200, '404': 'Not found'}}
 
 #注意：字典的key是不允许重复的，如果重复了，则默认是最后一次存储的数据，之前的值会被冲掉
 print({"one":"Java","one":"Python","two":"Golang"})   #{'one': 'Python', 'two': 'Golang'}
@@ -72,13 +72,159 @@ print(dict1.get(3,"不存在key为3的数据"))  #不存在key为3的数据
 dict3 = {"name":"Tom","age":"20"}
 dict4 = {"sex":"male"}
 print(dict3)
-dict4.update()
+dict4.update(dict3)
 print(dict4)    #{'sex': 'male', 'name': 'Tom', 'age': '20'}
 
 
-#4、pop() 不同于set集合，dict的删除是pop()，而不是remove()
+
+#4、copy()  返回字典对象的浅复制
+dict_copy = dict3
+dict3.update({'test':'copy'})
+print('原字典为:',dict3,"复制后的字典为:",dict_copy)
+
+#原字典为: {'name': 'Tom', 'age': '20', 'test': 'copy'} 复制后的字典为: {'name': 'Tom', 'age': '20', 'test': 'copy'}
+'''
+    dict3新增了一个{'test':'copy'},为啥dict_copy的也同时新增了？
+    dict_copy = dict3   这行代码表示的是：dict_copy和dict3指向同一个字典。该字典在内存的值是一致的，内存里的值发生改变，两个
+    变量都会得到体现
+    扩展：对于dict3 = {"name":"Tom","age":"20"}变量，如果使用copy()函数，会发生什么情况呢？
+
+    copy() 返回字典对象的浅复制。所谓浅赋值，是指生成一个新的列表，并且把原列表中的所有元素的引用都复制到新列表中。如果原列表中只包含
+    整数、实数、复数等基本类型或元组、字符串这样的不可变类型的数据，一般是没有问题的。但是如果原列表中包含列表之类的可变数据类型，由于
+    浅复制是只是把子列表的引用复制到新列表中，于是修改任何一个都会影响到另外一个。
+    如以下代码：
+'''
+x = [1,2,[1,2,3]]               #原列表中包含子列表，且第三个元素是list(可变数据类型)
+y = x.copy()
+print('浅复制后的列表为:',y)     #赋值后的列表为: [1, 2, [1, 2, 3]]
+y[2].append(4)                  #修改复制列表中的子列表。x列表是否会发生变化？？
+print('原列表为:',x,'浅复制后的列表为:',y)    #原列表为: [1, 2, [1, 2, 3, 4]] 浅复制后的列表为: [1, 2, [1, 2, 3, 4]]
+'''
+    根据输出结果可以发现，原列表发生了变化，其第三个元素子中也多了个4的值。
+    这就是浅复制带来的影响：通常是修改新的是列表时，把原来的也改变了，但是我们是不希望原来的列表发生改变的
+    如果要避免浅复制或者直接赋值带来的影响，可以直接调用cpoy库中的deepcopy()函数实现深复制。
+    所谓深复制，是值对原列表中的元素进行递归，把所有的值都复制到新列表中，对嵌套的子列表不再是复制引用。这样一来，新列表和原列表相互独立，
+    修改任何一个都不会影响另外一个。
+'''
+#5、pop() 删除  不同于set集合，dict的删除是pop()，而不是remove()
 print(dict1)   #删除前：{1: 'one', 2: 'two', '3': '新增的'}
 
 dict1.pop("3")
 
 print(dict1)   #删除后：{1: 'one', 2: 'two'}
+#6、del 删除字典
+del dict3['name']
+print("删除字典dict3中key为name的元素,最后结果为：",dict3)   #删除字典dict3中key为name的元素,最后结果为： {'age': '20'}
+
+del dict3 
+# print("dict3被删除。",dict3)   #执行该语句会报错，因为dict3已经被删除了
+'''
+Traceback (most recent call last):
+  File ".\dict.py", line 90, in <module>
+    print("dict3被删除。",dict3)
+NameError: name 'dict3' is not defined
+'''
+
+
+#四、多种方式申明字典
+#1、直接显示定义
+dict5 = {"java":"java","python":"python","Go":"Golang"}
+
+#2、dict()函数  变量直接赋值或者通过嵌套序列(列表、元组的组合)来生成字典
+dict6 = dict(a = 1,b = 2,c = 3) 
+print(dict6)   #{'a': 1, 'b': 2, 'c': 3}  变量直接赋值
+
+
+# list_01 = [[1,2,3],['Tom','Jerry']]  错误代码，执行会报错
+list_01 = [[1,2],['Tom','Jerry']]
+
+print('list_01转为字典：',dict(list_01))   #list_01转为字典： {1: 2, 'Tom': 'Jerry'}
+
+'''
+    需要特别注意的是，再通过嵌套序列转为字典时，内层的序列必须是2个，否则会报错：
+    Traceback (most recent call last):
+    File ".\dict.py", line 109, in <module>
+    print('list_01转为字典：',dict(list_01))
+    ValueError: dictionary update sequence element #0 has length 3; 2 is required
+'''
+
+#3、dict.fromkeys()  只有key时，直接生成一个字典
+keys = ['a','b','c']
+dict7 = dict.fromkeys(keys)    #入参只有key时，默认生成值都为:None的字典
+print(dict7)   #{'a': None, 'b': None, 'c': None}   
+
+dict7 = dict.fromkeys(keys,"hello")    #入参有key，value时，生成值都为:hello的字典
+print(dict7)   #{'a': 'hello', 'b': 'hello', 'c': 'hello'}
+
+
+
+#五、字典的元素访问
+
+# 1. print(dic[1])  # 不能用序列的索引方式
+# 字典里面也就同样的意思，但字典没有顺序，以key来作为指向，所以指向的key必须存在
+dic = {'a':1, "b":2, "c":3}
+print(dic['a'])     #1
+
+
+# 2. 对于嵌套字典，输出嵌套内容，通过重复指向来输出
+poi = {'name':'shop', 'city':'shanghai', 'information':{'address':'somewhere', 'num':66663333}}
+print(poi['information']['address'])   #somewhere
+
+
+# 3. get(key)方法：直接查看key的value，如果没有相应key则返回None，添加print参数可以多返回一个值
+print(poi.get('c'))  #3
+print(poi.get('d'),print("没有值"))  #没有值
+                                     #None None 为什么会输出两个None???
+# 4. keys()方法：输出字典所有key，注意这里的输出内容格式是视图，可以用list()得到key的列表，类似range()
+print(poi.keys())          #dict_keys(['a', 'b', 'c'])
+print(type(poi.keys()))    #<class 'dict_keys'>
+print(list(poi.keys()))    #['name', 'city', 'information']   所有key组成的列表
+'''
+    <class 'dict_keys'>
+    在Python2里，keys()会返回一个列表.
+    而在Python3中则会返回dict_keys()，它是键的迭代形式。
+    这种返回形式对于大型字典非常有用，因为它不需要时间和空间来创建返回的列表。有
+    时你需要的可能就是一个完整的列表，但在Python3中，你只能自己调用list()将dict_keys转换为列表类型。
+'''
+
+# 5. values()方法：输出字典所有values，原理同.keys()方法
+print(poi.values())        #dict_values(['shop', 'shanghai', {'address': 'somewhere', 'num': 66663333}])
+print(type(poi.values()))  #<class 'dict_values'>
+
+# 6. items()方法：输出字典所有items(元素) 原理同.keys()方法,输出形式为嵌套序列,列表和元组的组合
+# print(poi.items())         #dict_items([('name', 'shop'), ('city', 'shanghai'), ('information', {'address': 'somewhere', 'num': 66663333})])
+print(type(poi.items()))   #<class 'dict_items'>
+
+#六、字典的遍历
+# 1. 遍历key
+for k in poi:  #同for k in poi.keys(): 
+
+    print(k, end=' ')   #name city information  
+print()
+# 2. 遍历value
+for v in poi.values():
+    print(v, end=' ')   #shop shanghai {'address': 'somewhere', 'num': 66663333}
+print()
+# 3. 同时遍历key,value
+for k, v in poi.items():
+    #print('key = ', k, ',', 'value = ', v)  写法并不简洁,且没有pythonic,改为以下写法:
+    print('key = %s, value = %s' %(k, v))
+    
+
+'''
+输出结果:
+key =  name , value =  shop
+key =  city , value =  shanghai
+key =  information , value =  {'address': 'somewhere', 'num': 66663333}
+'''
+
+
+# 七 练习
+# 1.dict.keys()生成的是不是列表？ 
+
+'''
+    dict.keys()生成的并不是列表,而是key视图.可以通过list()函数将结果转为列表
+'''
+
+# 2.如何判断一个value是否存在于字典中？
+print('shop' in poi.values())     #True

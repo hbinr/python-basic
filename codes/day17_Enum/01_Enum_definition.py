@@ -79,3 +79,5 @@ Month.DECEMBER
     枚举的名字：Month.JANUARY.name
     枚举值：Month.JANUARY.code
 '''
+
+print("1212")
