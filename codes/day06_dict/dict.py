@@ -126,7 +126,7 @@ NameError: name 'dict3' is not defined
 '''
 
 
-#四、多种方式申明字典
+#四、多种方式声明字典
 #1、直接显示定义
 dict5 = {"java":"java","python":"python","Go":"Golang"}
 
