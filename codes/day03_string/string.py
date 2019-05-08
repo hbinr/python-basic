@@ -28,10 +28,10 @@ print(operateStr[0:5])#结果为Hello，数字为字符所在的下标位置(左
 print(operateStr[6:]) #正向 切片操作
 print(operateStr[6:11]) #正向
 print(operateStr[-5:]) #逆向  '-'表示从末尾开始，下标从“末尾第一个(1) ”开始 ，
-print("2222"+operateStr[-5:-0]) #结果为2222，不存在'-0'位
+print("2222" + operateStr[-5:-0]) #结果为2222，不存在'-0'位
 
 #3、运算  +:字符串连接; * :重复输出字符串 （没有-和/）;   in如果字符串中包含给定的字符返回 True，反之not in
-print(operateStr+operateStr); #Hello WorldHello World
+print(operateStr + operateStr); #Hello WorldHello World
 # print('A'+1) #TypeError: can only concatenate str (not "int") to str，不同类型的对象不可以相加
 
 print(operateStr*3) #Hello WorldHello WorldHello World
