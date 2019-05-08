@@ -50,3 +50,8 @@ print(len(list)) #5
 print(max([1,2,4,99]))  #99
 print(max(['a','2','4','A'])) #a:97，2:50，4:52，A:65。比较ASCII值  ord('2')
 print(ord('4'))
+
+#3、 append() 用于在列表末尾添加新的对象，该方法无返回值，但是会修改原来的列表  用法:list.append(obj)
+lst = [1, 2, 3, 4]
+lst.append("hello")
+print(lst)                    #[1, 2, 3, 4, 'hello']
