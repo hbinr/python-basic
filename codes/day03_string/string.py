@@ -21,13 +21,13 @@ operateStr = "Hello World"
 #1、获取某个字符
 print(operateStr[0])#结果为H,下标为0的字符
 
-#2、使用[:]来获取想要的字符串，相当于Java中的数组操作，Java中，字符串地层也是数组实现的
+#2、使用[:]来获取想要的字符串，相当于Java中的数组操作，Java中，字符串底层也是数组实现的
 print(operateStr[0:5])#结果为Hello，数字为字符所在的下标位置(左开右闭)
 
 #获取World
 print(operateStr[6:]) #正向 切片操作
 print(operateStr[6:11]) #正向
-print(operateStr[-5:]) #逆向  '-'表示从末尾开始，下标为从1开始 ，
+print(operateStr[-5:]) #逆向  '-'表示从末尾开始，下标从“末尾第一个(1) ”开始 ，
 print("2222"+operateStr[-5:-0]) #结果为2222，不存在'-0'位
 
 #3、运算  +:字符串连接; * :重复输出字符串 （没有-和/）;   in如果字符串中包含给定的字符返回 True，反之not in
