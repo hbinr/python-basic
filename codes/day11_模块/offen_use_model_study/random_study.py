@@ -13,7 +13,7 @@ y = random.random()
 print('0-1随机浮点数:',x, y)
 
 # 2. randint(num1,num2) 随机整数
-x = random.randint(1,10)
+x = random.randint(1,2)
 y = random.randint(1,20)
 print('随机整数:',x, y)
 
