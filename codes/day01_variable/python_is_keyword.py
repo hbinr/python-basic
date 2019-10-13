@@ -1,7 +1,8 @@
 import keyword
 
 print('\n'.join(keyword.kwlist))
-if keyword.iskeyword("pass"):
+# 模块还提供了关键字的判断功能，如pass关键字	表示空的类、方法或函数的占位符
+if keyword.iskeyword("pass"):   
     print ("builtin keyword")
 else:
     print ("It can be defined.")
@@ -31,13 +32,14 @@ else:
 # in
 # is
 # lambda
-#     nonlocal
-#     not
-#     or
-#     pass
-#     raise
-#     return
-#     try
-#     while
-#     with
-#     yield
+# nonlocal
+# not
+# or
+# pass
+# raise
+# return
+# try
+# while
+# with
+# yield
+# builtin keyword

@@ -1,7 +1,7 @@
 # binary 二进制的  0 1 那么2表示10
 # octal 八进制的  0,1,2,3,4,5,6,7  那么8表示为10
 # hexadecimal 十六进制的  0,1,2,3.....9,A,B,C,D,E,F
-# decimal 十进制的 0,1,2,3,4,5,6,7,8,9,10
+# decimal 十进制的 0,1,2,3,4,5,6,7,8,9
 
 # BIN、OCT、HEX、DEC分别代表二、八、十六、十进制~
 
@@ -33,7 +33,8 @@ print("将十六进制转为八进制:"+oct(0x10))  # 0b10000 即16
 print("oct(2)二进制是以str类型存储的:" + oct(2))  #0o2   八进制数是字符串类型
 
 #将其他进制转为十进制  int()
-# print("将二进制转为十进制:"+int(0b10))  # 2 这行代码会报错，因为十进制数在python是以int型存储的,TypeError: can only concatenate str (not "int") to str
+# print("将二进制转为十进制:"+int(0b10))  # 2 这行代码会报错，因为十进制数在python是以int型存储的
+# TypeError: can only concatenate str (not "int") to str
 
 print(int(0b10))  # 2  将二进制转为十进制
 print(int(0o10))  # 8  将八进制转为十进制
