@@ -1,4 +1,4 @@
-__all__ = ["list","tuple","set","dict"]   #dict模块的内置变量
+__all__ = ["list", "tuple", "set", "dict"]   #dict模块的内置变量
 #dict 字典  dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。
 
 #dict也是集合，所以在定义时也是使用"{}"来表示，和set不同的是：增加了key-value的概念，dict也是无序不重复的，key的值不允许重复
@@ -172,7 +172,7 @@ print(poi['information']['address'])   #somewhere
 
 
 # 3. get(key)方法：直接查看key的value，如果没有相应key则返回None，添加print参数可以多返回一个值
-print(poi.get('c'))  #3
+print(poi.get('c'))  # None
 print(poi.get('d'),print("没有值"))  #没有值
                                      #None None 为什么会输出两个None???
 # 4. keys()方法：输出字典所有key，注意这里的输出内容格式是视图，可以用list()得到key的列表，类似range()
@@ -218,8 +218,12 @@ key =  city , value =  shanghai
 key =  information , value =  {'address': 'somewhere', 'num': 66663333}
 '''
 
+# 七、字典推导式  
+newdict1 = {v:k for k,v in dict1.items()}
+print("字典推导式练习：",newdict1)  # 字典推导式练习： {'one': 1, 'two': 2}
 
-# 七 练习
+
+# 八、练习
 # 1.dict.keys()生成的是不是列表？ 
 
 '''
