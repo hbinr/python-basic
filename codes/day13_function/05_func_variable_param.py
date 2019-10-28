@@ -77,9 +77,19 @@ print_one(*param_list)    #入参为： (5, 6, 7, 8)
 #测试3： 入参为一个dict
 param_dict = {"name":"茸茸","age":18}
 print_two(**param_dict)
+
 '''
 print_two(**param_dict)结果为：
 入参类型为： <class 'dict'>
 name:茸茸
 age:18
 '''
+
+# 如果不解包裹参数会怎样?
+# print_two(param_dict)   # TypeError: print_two() takes 0 positional arguments but 1 was given
+
+# 报错内容提示 print_two() 需要0个位置参数,但是调用时却传递了一个，那如果增加一个参数又如何?
+# 综上，函数定义时的参数要和调用函数时参数形式匹配
+def print_three(a, **args):
+    print(a,args,end="......")    
+print_three(param_dict)   # {'name': '茸茸', 'age': 18} {}......

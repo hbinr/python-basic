@@ -17,20 +17,21 @@ b**=3  #8
 print(b)
 
 #三、比较(关系)运算符 ,返回结果为bool类型   == , != , > , < , >= ,<=
-b += b >= 2   #9   先执行 b>=2 结果为True，然后执行b = b + True，即8 + 1
+b += b >= 2   #9   先执行 b>=2 结果为True，然后执行b = b + True，即8 + int(True)1
 print(b)
 #并不是只有数字才能做比较运算
 print('a' > 'b')  #False  ,实际比较得ASCII值
 ord('a')    #97
 ord('b')    #98   但是ord()是作用于单字符的。如果是字符串比较呢？
 
-print('abc' >= 'abd')    #False  ，在python中，字符串比较时，是单个字符一一去比较,只要发现有True的,则直接返回结果True,不再向后判断
+print('abc' >= 'abd')    # False  ，字符串按位比较，两个字符串第一位字符的ascii码谁大，字符串就大，不再比较后面的；第一个字符相同就比第二个字符串，
+                         # 以此类推，需要注意的是空格的ascii码是32，空（null）的ascii码是0
 
 print([1,3,2] > [1,2,5])    #True  ，1 > 1为False;3 > 2为True;2 > 5为False  结果怎么返回True？？详见：notes -> list比较源码分析
 # print((1,3,2) > [1,2,5])  #TypeError: '>' not supported between instances of 'tuple' and 'list'
 print((1,3,2) > (1,2,5))    #True
 
-#四、逻辑运算符 ,返回结果为bool类型   and  , or  , !
+#四、逻辑运算符 ,返回结果为bool类型   and  , or  , not
 #1、and  且  都为True(Flase)，结果才为True(False)
 flag = True and True
 print("True and True 的结果：",flag)  #True
@@ -130,7 +131,7 @@ print("按位或运算:",bin(i | j))  #0b11
 
 #3、^  按位异或： 比较二进制数的每一位，当前位的两个二进制表示不同则为1相同则为0.该方法被广泛推广用来统计一个数的1的位数！
 print("按位异或运算:",bin(i ^ j))  #0b1
-
+print(0b1 == 0b01)  # True
 #4、~
 
 #5、<<  左移运算符m<<n表示吧m左移n位。左移n位的时候，最左边的n位将被丢弃，同时在最右边补上n个0.
