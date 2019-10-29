@@ -15,7 +15,7 @@ if (!PyList_Check(v) || !PyList_Check(w)) {
     wl = (PyListObject *)w;
 
 
-3、对于，==和！=两个操作符，如果两个列表的大小不想等，则可以直接返回False或者True的结果，无须再进行其他比较。
+3、对于，==和！=两个操作符，如果两个列表的大小不相等，则可以直接返回False或者True的结果，无须再进行其他比较。
 if (Py_SIZE(vl) != Py_SIZE(wl) && (op == Py_EQ || op == Py_NE)) {
         /* Shortcut: if the lengths differ, the lists differ */
         PyObject *res;

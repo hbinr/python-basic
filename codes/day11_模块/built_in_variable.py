@@ -10,16 +10,17 @@
 import day11_模块.cycle2
 
 temp = 1
-infos = dir()  #打印出当前模块所有的变量
-print(infos)  #['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'temp']
+infos = dir()  # 打印出当前模块所有的变量
+print(
+    infos)  # ['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'temp']
 
-#可以看到，除了temp显式变量，还打印出了很多内置变量。重点学习下:__doc__，__file__，__name__，__package__ 这四个内置变量
+# 可以看到，除了temp显式变量，还打印出了很多内置变量。重点学习下:__doc__，__file__，__name__，__package__ 这四个内置变量
 
-#1、__doc__   文档注释
-print("builr_in_variable模块的__doc__值为：" + __doc__)     #文档注释 ，只打印当前模块第一个文档注释   上面的"这是第二段文档注释"并没有打印
+# 1、__doc__   文档注释
+print("builr_in_variable模块的__doc__值为：" + __doc__)  # 文档注释 ，只打印当前模块第一个文档注释   上面的"这是第二段文档注释"并没有打印
 
-#2、__file__       #系统内文件的完整路径(当前是window10系统)
-print("builr_in_variable模块的__file__值为：" + __file__)    #F:/WorkSpaces/python-basic/codes/day11_模块/built_in_variable.py
+# 2、__file__       #系统内文件的完整路径(当前是window10系统)
+print("builr_in_variable模块的__file__值为：" + __file__)  # F:/WorkSpaces/python-basic/codes/day11_模块/built_in_variable.py
 '''
 注意：__file__的值和python执行程序命令有关，它所表示的是执行程序时，打印在执行命令下，文件所在的位置
 实践:
@@ -31,13 +32,11 @@ cycle2模块的__file__值为： day11_模块\cycle2.py
 
 '''
 
-#3、__name__  命名空间+模块名称，没有命名空间就只显示模块名称
-print("builr_in_variable模块的__name__值为：" + __name__)    #__main__，当前运行的程序(入口文件)，会执行__main__方法
+# 3、__name__  命名空间+模块名称，没有命名空间就只显示模块名称
+print("builr_in_variable模块的__name__值为：" + __name__)  # __main__，当前运行的程序(入口文件)，会执行__main__方法
 
-#4、__package__   python包名
-print("builr_in_variable模块的__package__值为：" + (__package__ or '当前模块不属于任何包'))  #None 当前模块不属于任何包 注意()的使用
-
-
+# 4、__package__   python包名
+print("builr_in_variable模块的__package__值为：" + (__package__ or '当前模块不属于任何包'))  # None 当前模块不属于任何包 注意()的使用
 
 '''
 #注意区分cycle2模块中的输出和本模块的输出做比较

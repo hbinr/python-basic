@@ -1,4 +1,4 @@
-__all__ = ["list", "tuple", "set", "dict"]   #dict模块的内置变量
+__all__ = ["list_test", "tuple_test", "set_test", "dict_test"]   #dict模块的内置变量
 #dict 字典  dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。
 
 #dict也是集合，所以在定义时也是使用"{}"来表示，和set不同的是：增加了key-value的概念，dict也是无序不重复的，key的值不允许重复
@@ -13,7 +13,7 @@ __all__ = ["list", "tuple", "set", "dict"]   #dict模块的内置变量
 
 #一、定义
 #1、空字典  {}
-print(type({}))    #<class 'dict'>
+print(type({}))    #<class 'dicfvt'>
 
 #2、简单定义,字典的key并不是固定的，同一个
 print({1:1,"1":1113,"study":"python"})         #{1: 1, '1': 1113, 'study': 'python'}
