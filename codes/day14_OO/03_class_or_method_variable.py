@@ -8,53 +8,68 @@
     实例变量只能通过对象名访问。
 
 '''
-class Student():
-    name = 'class\'s variable'     #类变量
-    age = 0       #类变量
-    def __init__(self, name, age):
-        self.name = name     #实例变量
-        self.age = age       #实例变量
 
-    def  print_info(self, name, age):
-        self.name = name     #实例变量
-        self.age = age       #实例变量
-        print('%s : %s' %(self.name, self.age))
+
+class Student():
+    name = 'class\'s variable'  # 类变量
+    age = 0  # 类变量
+
+    def __init__(self, name, age):
+        self.name = name  # 实例变量
+        self.age = age  # 实例变量
+        # 如果打印不带self的变量，结果会如何?
+        print('打印不带self的变量，结果：', name, age)  # 打印不带self的变量，结果： 茸儿 20
+        '''
+            结果依然是初始化对象时的值。
+            打印不带self的变量，本质上时打印形参的的值。如果改动下，__init__(self,name1,age1),那么就会报错：
+            找不到name1 ,age1变量
+        '''
+
+    def print_info(self, name, age):
+        self.name = name  # 实例变量
+        self.age = age  # 实例变量
+        print('%s : %s' % (self.name, self.age))
 
     def test_self(self, name):
-        name = name     #实例变量
-        print('test_self()中的实例变量：',name)
+        name = name  # 实例变量
+        print('test_self()中的实例变量：', name)
 
-student1 = Student('茸儿',20)
 
-#访问类变量
-print(Student.name)               #class's variable  通过类名访问
-print(student1.__class__.name)    #class's variable 间接通过类名来访问
-#访问实例变量
-print(student1.name)              #茸儿
-print(student1.age)               #20
+student1 = Student('茸儿', 20)
 
-#访问实例方法
-student1.print_info('茸儿',20)    #茸儿 : 20
+# 访问类变量
+print(Student.name)  # class's variable  通过类名访问
+print(student1.__class__.name)  # class's variable 间接通过类名来访问
+# 访问实例变量
+print(student1.name)  # 茸儿
+print(student1.age)  # 20
+
+# 访问实例方法
+student1.print_info('茸儿', 20)  # 茸儿 : 20
 
 '''
     如果在定义实例变量时没有加self前缀，再次执行print(student1.name) 会是什么结果呢？
 '''
 
+
 class Teacher():
     name = '常老师'
+
     def __init__(self, name):
         name = name
 
-#实例化一个名叫'王老师'的对象
+
+# 实例化一个名叫'王老师'的对象
 teacher1 = Teacher("王老师")
 
-#访问刚刚定义teacher1对象的name，即想访问实例变量
-print(teacher1.name)        #常老师
+# 访问刚刚定义teacher1对象的name，即想访问实例变量
+print(teacher1.name)  # 常老师
+
 '''
     结果并不是我们想象中的王老师，而是常老师(类变量)
 '''
-#验证teacher1对象里是否有实例变量name    __dict__，表示当前对象所有的变量
-print(teacher1.__dict__)    #{}  结果是一个空字典，即teacher1对象里没有任何变量
+# 验证teacher1对象里是否有实例变量name    __dict__，表示当前对象所有的变量
+print(teacher1.__dict__)  # {}  结果是一个空字典，即teacher1对象里没有任何变量
 
 '''
     既然teacher1对象里没有任何变量，直接打印一个None才是正常的逻辑，但是结果却是常老师。
@@ -64,7 +79,13 @@ print(teacher1.__dict__)    #{}  结果是一个空字典，即teacher1对象里
     
 '''
 
-#类的所有变量__dict__
+'''
+    如果在定义实例变量时没有加self前缀，直接打印实例变量会是什么结果呢？
+'''
+# 访问测试方法
+student1.test_self('小冰')  # test_self()中的实例变量： 小冰
+
+# 类的所有变量__dict__
 print(Teacher.__dict__)
 
 '''

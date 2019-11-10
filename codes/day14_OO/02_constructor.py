@@ -11,7 +11,8 @@ class Student():
 
     def __init__(self):
         print("进入构造函数")
-        # return 'student1实例'     #如果在构造函数增加返回值，在实例化对象时，会报错
+        # return 'student1实例'     # 如果在构造函数增加返回值，在实例化对象时，会报错
+                                 # TypeError: __init__() should return None, not 'str'
 
     def my_print(self):
         print("This is my_print function")

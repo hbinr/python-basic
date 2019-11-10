@@ -77,7 +77,7 @@ print(a)     #1
 c = 1
 
 def func1():
-    # c = 2
+    c = 2
     def func2():
         # c = 3
         print(c)

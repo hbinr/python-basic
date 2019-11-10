@@ -22,6 +22,9 @@ print(lst[0](2), lst[1](3), lst[2](3))          #4 9 9
 # dic = {'f1':lambda :1 + 2, 'f2':lambda :2 + 3, 'f3':lambda :3 + 4}
 dic = {'f1':(lambda :1 + 2), 'f2':(lambda :2 + 3), 'f3':(lambda :3 + 4)}   #方便阅读还是给lambda表达式加上'()'较好
 print(dic['f1'](), dic['f2'](), dic['f3']())    #3 5 7
+print(dic['f1'], dic['f2'], dic['f3'])
+# 如果不加() 打印的是lambda视图
+# <function <lambda> at 0x00000253C901CE18> <function <lambda> at 0x00000253C901CEA0> <function <lambda> at 0x00000253C901CF28>
 
 
 # 4. lambda表达式作为函数参数

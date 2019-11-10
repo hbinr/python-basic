@@ -13,7 +13,7 @@ class Student():
     total = 0
     def __init__(self, name, age, gendor):
         self.name = name      #公有成员
-        self._age = age       #公有成员
+        self._age = age       #保护成员
         self.__gendor = gendor      #私有成员
 
 student1 = Student('茸儿',18,'女')
@@ -30,23 +30,23 @@ print(student1.__dict__)            #{'name': '茸儿', '_age': 18, '_Student__g
 
 '''
     发现性别属性的变量名为:_Student__gendor，并不是我们显式定义的__gendor，所以在执行print(student1.__gendor)
-    代码时报错了。原来是Python解释器对外把__name变量改成了_Student__name
+    代码时报错了。原来是Python解释器对外把__gendor变量改成了_Student__gendor
     那如果执行print(student1._Student__gendor)呢？
 '''
 print(student1._Student__gendor)     #女
 '''
     私有属性还是被访问到了，那Python中访问限制有什么作用呢？还是能被外部程序访问。那么在开发中，随意访问可以吗？
 
-    建议不要这么干，因为不同版本的Python解释器可能会把__name改成不同的变量名。
+    建议不要这么干，因为不同版本的Python解释器可能会把__gendor改成不同的变量名。
 
     总的来说就是，Python本身没有任何机制阻止你干坏事，一切全靠自觉。
 '''
 
 #私有变量的坑
 
-student1.__gendor = '男'       #给性别属性重新赋值
-print(student1.__gendor)       #男   这次不仅能成功访问私有变量，还能够重新赋值。。这又是怎么回事
-
+student1.__gendor = '男'         # 给性别属性重新赋值
+print(student1.__gendor)         # 男   这次不仅能成功访问私有变量，还能够重新赋值。。这又是怎么回事
+print(student1._Student__gendor) # 女
 '''
     其实在上面的代码中已经有了答案，基于Python动态语言的特性，student1.__gendor = '男'，相当于student1对象新增了一个
     名为__gendor的变量。
