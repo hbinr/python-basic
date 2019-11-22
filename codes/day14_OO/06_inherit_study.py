@@ -1,6 +1,6 @@
 '''
     OO_6  继承
-    刚开始在学习类的时候，简单在定义了提了一下继承，但是一直没有深入学习和实践。今天主要记录继承：
+    刚开始在学习类的时候，简单在定义里提了一下继承，但是一直没有深入学习和实践。今天主要记录继承：
     在OOP程序设计中，当我们定义一个class的时候，可以从某个现有的class继承，新的class称为子类（Subclass），
     而被继承的class称为基类、父类或超类（Base class、Super class）。
     
@@ -15,6 +15,7 @@
     
 '''
 
+
 class Animal():
     def __init__(self, name, age, gendor):
         self.name = name
@@ -27,48 +28,54 @@ class Animal():
     def eat(self):
         print("动物具有吃的能力")
 
+
 '''
     1、定义子类，并继承Animal类
 '''
+
+
 class Dog(Animal):
     def eat(self):
         print("狗喜欢吃肉")
 
+
 class Cat(Animal):
     def eat(self):
         print("猫喜欢吃鱼")
-#实例化dog对象，注意，要传入父类构造函数中的参数，否则会报错
+
+
+# 实例化dog对象，注意，要传入父类构造函数中的参数，否则会报错
 # dog = Dog() #TypeError: __init__() missing 3 required positional arguments: 'name', 'age', and 'gendor'
 dog = Dog('阿黄', 2, '公')
 
 '''
     2、操作对象的属性
 '''
-#访问父类中的公有变量
-print("Animal类的实例变量name:",dog.name)    #Animal类的实例变量name: 阿黄
+# 访问父类中的公有变量
+print("Animal类的实例变量name:", dog.name)  # Animal类的实例变量name: 阿黄
 
-#访问父类中的私有变量
+# 访问父类中的私有变量
 # print("Animal类的实例变量__gendor:",dog.__gendor)
-#AttributeError: 'Dog' object has no attribute '__gendor'
-#会报错  ，因为私有变量只有本类可以访问，子类都不允许
+# AttributeError: 'Dog' object has no attribute '__gendor'
+# 会报错  ，因为私有变量只有本类可以访问，子类都不允许
 
-#调用父类run()，输出结果为父类run()的内容
-dog.run()      #动物拥有跑的能力
+# 调用父类run()，输出结果为父类run()的内容
+dog.run()  # 动物拥有跑的能力
 
-#调用eat()，输出结果为子类重写eat()的内容
-dog.eat()      #狗喜欢吃肉     子类就会覆盖父类的方法,在代码运行的时候，总是会调用子类的run()。这样，我们就获得了继承的另一个好处：多态。
-
+# 调用eat()，输出结果为子类重写eat()的内容
+dog.eat()  # 狗喜欢吃肉     子类就会覆盖父类的方法,在代码运行的时候，总是会调用子类的run()。这样，我们就获得了继承的另一个好处：多态。
 
 '''
     3、多态的使用
     在继承关系中，如果一个实例的数据类型是某个子类，那它的数据类型也可以被看做是父类。但是，反过来就不行
 '''
-#多态1：如果一个实例的数据类型是某个子类，那它的数据类型也可以被看做是父类
+# 多态1：如果一个实例的数据类型是某个子类，那它的数据类型也可以被看做是父类
 
-if(isinstance(dog, Animal)):
+if isinstance(dog, Animal):
     print("Dog的数据类型是Animal")
 
-#多态2：开闭原则
+print(isinstance(dog, Animal))       # True
+# 多态2：开闭原则
 # 对于一个变量，我们只需要知道它是Animal类型，无需确切地知道它的子类型，就可以放心地调用run()方法，调用方只管调用，不管细节
 # 对扩展开放：允许新增Animal子类；
 #
@@ -78,10 +85,10 @@ if(isinstance(dog, Animal)):
 def eat_polymorphic(Animal):
     Animal.eat()
 
-eat_polymorphic(dog)        #狗喜欢吃肉
-cat =  Cat('阿猫', 2, '公')
-eat_polymorphic(cat)        #猫喜欢吃鱼
 
+eat_polymorphic(dog)  # 狗喜欢吃肉
+cat = Cat('阿猫', 2, '公')
+eat_polymorphic(cat)  # 猫喜欢吃鱼
 
 '''
     4、静态语言VS动态语言
@@ -92,12 +99,13 @@ eat_polymorphic(cat)        #猫喜欢吃鱼
 对于Python这样的动态语言来说，则不一定需要传入Animal类型。我们只需要保证传入的对象有一个eat()方法就可以了：
 '''
 
+
 class Timer(object):
     def eat(self):
         print("Start eating.....")
 
 
-eat_polymorphic(Timer())      #Start eating..... 可以看到，Timer并没有继承Animal类，但是eat_polymorphic()却可以执行
+eat_polymorphic(Timer())  # Start eating..... 可以看到，Timer并没有继承Animal类，但是eat_polymorphic()却可以执行
 
 '''
     这就是动态语言的“鸭子类型”,“file-like object“。

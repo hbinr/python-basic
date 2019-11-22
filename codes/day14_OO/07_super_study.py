@@ -8,6 +8,7 @@
     
 '''
 
+
 class Animal():
     def __init__(self, name, age, gendor):
         self.__name = name
@@ -20,26 +21,28 @@ class Animal():
     def eat(self):
         print("动物具有吃的能力")
 
-#定义Dog类，并继承Animal类
+
+# 定义Dog类，并继承Animal类
 class Dog(Animal):
-    def __init__(self, species, name, age, gendor):   #增加一个种类的属性，父类的属性也要加入
+    def __init__(self, species, name, age, gendor):  # 增加一个种类的属性，父类的属性也要加入
         self.species = species
-        #调用父类的构造函数
+        # 调用父类的构造函数
         Animal.__init__(self, name, age, gendor)
 
     def eat(self):
         print("狗喜欢吃肉")
 
-#实例化dog对象
-dog = Dog('牧羊犬','阿黄', 2, '公')
-# print('Dog\'s name is',dog.name)
 
-print('Dog\'s name is',dog.gendor)
+# 实例化dog对象
+dog = Dog('牧羊犬', '阿黄', 2, '公')
+print('Dog\'s name is',dog.name)
+
+print('Dog\'s name is', dog.gendor)
 '''
         运行报错：AttributeError: 'Dog' object has no attribute 'name'
     在实例化对象时不是已经初始化name为'阿黄'了吗？为什么报没有name属性错误。
 '''
-print(dog.__dict__)    #{'species': '牧羊犬', '_Animal__name': '阿黄', '_Animal__age': 2, 'gendor': '公'}
+print(dog.__dict__)  # {'species': '牧羊犬', '_Animal__name': '阿黄', '_Animal__age': 2, 'gendor': '公'}
 '''
     打印dog对象的变量后，发现name属性是属于Animal父类的，且是私有的，所以子类无法访问
     
@@ -64,25 +67,28 @@ print(dog.__dict__)    #{'species': '牧羊犬', '_Animal__name': '阿黄', '_An
 
 '''
     写了这么多，super()真正的用法还未涉及，其实是抛砖引玉，接下来记录super的用法。
-    试想一下：Student类不想继承Human类，要换一个其他，那么凡是调用 Animal.__init__(self, name, age, gendor)的地方，
-    类名也得改，如果Student类里有多处都是类似的写法呢，那不是得全部改？这件事想想就觉得不太合理，而且也明显违反了开闭原则，
+    试想一下：Dog类不想继承Animal类，要换一个其他，那么凡是调用 Animal.__init__(self, name, age, gendor)的地方，
+    类名也得改，如果Dog类里有多处都是类似的写法呢，那不是得全部改？这件事想想就觉得不太合理，而且也明显违反了开闭原则，
     对外扩展要开放，但是自身的修改时封闭的，不轻易去改动原有的逻辑。
     因此，super()派上用场了  语法： super().父类属性
 '''
-#重新定义Cat类，并继承Animal类
+
+
+# 重新定义Cat类，并继承Animal类
 class Cat(Animal):
     def __init__(self, species, name, age, gendor):
         self.species = species
-        #调用父类的构造函数
+        # 调用父类的构造函数
         super().__init__(name, age, gendor)
 
     def eat(self):
-        super().eat()       #super调用父类的方法
+        super().eat()  # super调用父类的方法
 
         # print("猫喜欢吃鱼")
 
-cat = Cat('花猫','阿花', 2, '母')
-cat.eat()          #动物具有吃的能力   输出了父类的内容
+
+cat = Cat('花猫', '阿花', 2, '母')
+cat.eat()  # 动物具有吃的能力   输出了父类的内容
 
 '''
     Python中有多重继承的用法：
