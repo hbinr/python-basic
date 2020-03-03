@@ -6,3 +6,7 @@
 练习：test包的test1程序来作为模块运行
 cd codes
 python test.test1   #注意不能带.py后缀
+
+3. 切换Python版本(主要是2或3)
+py -2 其他命令   # 切换到python2命令执行
+py -3 其他命令   # 切换到python3命令执行
