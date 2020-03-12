@@ -1,10 +1,10 @@
-'''
+"""
     Python提供re模块，包含所有正则表达式的功能。
     
     推荐博客：Python3 如何优雅地使用正则表达式
             https://www.cnblogs.com/LoveFishC/p/4218366.html
             https://www.cnblogs.com/LoveFishC/p/4218375.html
-'''
+"""
 import re
 
 # 由于Python的字符串本身也用\转义，格外注意：'\'转义的坑

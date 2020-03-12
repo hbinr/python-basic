@@ -1,4 +1,4 @@
-'''
+"""
     分组  加()来表示一组
     https://www.cnblogs.com/cute/p/9186208.html
     1、用于匹配括号内的任何正则表达式,并且指明组的开始和结束位置;可以在执行匹配之后检索组中的内容,
@@ -14,7 +14,7 @@
     pattern：匹配的正则表达式
     string：要匹配的字符串。
     flags：标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等
-'''
+"""
 import re
 
 '''
@@ -53,7 +53,7 @@ str_regx1 = 'Hello World!'
 matchob = re.match(r'!$', str_regx1)  # !$ 匹配以!结尾的字符串
 print(matchob)  # None  由于match是从开头位置(此处为H)开始匹配的，所以无法匹配
 print(re.match(r'.*!$', str_regx1))  # <re.Match object; span=(0, 12), match='Hello World!'>
-    # 匹配!结尾并设置!之前为任意个字符 匹配成功
+# 匹配!结尾并设置!之前为任意个字符 匹配成功
 
 '''
     https://blog.csdn.net/djskl/article/details/44357389

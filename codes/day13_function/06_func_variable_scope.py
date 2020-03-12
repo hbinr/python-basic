@@ -1,4 +1,4 @@
-'''
+"""
     一、什么是变量作用域呢？
        在维基上给出的定义是“The scope of a variable describes where in a program's text the variable may be used,
        while the extent (or lifetime) describes when in a program's execution a variable has a (meaningful) value.
@@ -14,7 +14,7 @@
     四、nonlocal变量
        介于局部变量和全局变量之间的变量。关键字nonlocal声明的变量会引用距离最近的非全局作用域的变量，要求声明的变量已存在，关键字不会创建新的变量
     参考：https://www.cnblogs.com/fireporsche/p/7813961.html
-'''
+"""
 
 '''
     1、Python变量的作用域由变量所在源代码中的位置决定。只有当变量在Module(模块)、Class(类)、def(函数)中定义的时候，

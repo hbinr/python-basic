@@ -1,7 +1,7 @@
-'''
+"""
     本模块主要记录包和模块常见的错误
 
-'''
+"""
 
 # 1、循环导入，类似Java使用maven管理依赖时，循环导入依赖。无论时直接导入还是间接导入，都有可能出现循环导入的情况。
 
@@ -21,6 +21,7 @@
 
 # 2、循环导入，另一种导入方式报错
 import day11_模块.cycle1 as cy
+
 print("I want to print cycle1's variable", cy.cy1)
 '''
     报错：AttributeError: module 'day11_模块.cycle1' has no attribute 'cy1'

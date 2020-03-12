@@ -4,6 +4,7 @@
 """
     文件写入,写入的数据必须是字符串
 """
+
 # 1. write(str) 将字符串写入文件，返回的是写入的字符长度。
 path = 'C:/Users/HBlock/Desktop/test_w.txt'
 file_w = open(path, 'w', encoding='utf8')  # 先读取该文件,没有则创建一个

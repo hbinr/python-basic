@@ -1,8 +1,8 @@
-'''
+"""
     主要记录Python的内置变量
     python模块，除了有自定义变量，模块本身还有一些内置变量
     内置函数dir()返回指定对象或模块obj的成员列表，如果不带参数则返回当前作用域的所有标识符
-'''
+"""
 
 '''
     这是第二段文档注释
@@ -12,7 +12,8 @@ import day11_模块.cycle2
 temp = 1
 infos = dir()  # 打印出当前模块所有的变量
 print(
-    infos)  # ['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'temp']
+    infos)  # ['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__',
+# '__package__', '__spec__', 'temp']
 
 # 可以看到，除了temp显式变量，还打印出了很多内置变量。重点学习下:__doc__，__file__，__name__，__package__ 这四个内置变量
 

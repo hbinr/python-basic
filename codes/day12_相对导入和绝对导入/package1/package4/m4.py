@@ -9,9 +9,8 @@ from ..m1 import temp1
     第三步：运行main.py入口文件，查看结果
 '''
 temp4 = 4
-print('m4模块的__package__为：',__package__)     #m4模块的__package__为： package1.package4
+print('m4模块的__package__为：', __package__)  # m4模块的__package__为： package1.package4
 
-print('m4_1模块的变量temp4_1的值为：', temp4_1)  #m4_1模块的变量temp4_1的值为： 41
+print('m4_1模块的变量temp4_1的值为：', temp4_1)  # m4_1模块的变量temp4_1的值为： 41
 
-print('m1模块的变量temp1的值为：', temp1)  #m1模块的变量temp1的值为： 1
-
+print('m1模块的变量temp1的值为：', temp1)  # m1模块的变量temp1的值为： 1

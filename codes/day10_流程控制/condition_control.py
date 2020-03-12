@@ -28,47 +28,61 @@ elif a == 3:
 else:
     print("非法输入！")
 
-#在实际操作中，从命令行接收的值都为str类型，所以上述代码无论输入什么值都是返回 "非法输入!"。所以需要将str转为int，调用int()即可
+# 在实际操作中，从命令行接收的值都为str类型，所以上述代码无论输入什么值都是返回 "非法输入!"。所以需要将str转为int，调用int()即可
 
 '''
     利用字典实现switch
 '''
+
+
 def taskForSunday():
     print("今天休息")
+
+
 def taskForRest():
     print("今天休息")
+
+
 def taskForChinese():
     print("今天上语文课")
+
+
 def taskForMath():
     print("今天上数学课")
+
+
 def taskForEnglish():
     print("今天上英语课")
+
+
 def taskForDefault():
     print("输入错误。。。。")
 
-switchDic = {"Sunday":taskForRest,
-             "Monday":taskForChinese,
-             "Tuesday":taskForMath,
-             "Wednesday":taskForEnglish,
-             "Tursday":taskForEnglish,
-             "Friday":taskForEnglish,
-             "Saturday":taskForRest
+
+switchDic = {"Sunday": taskForRest,
+             "Monday": taskForChinese,
+             "Tuesday": taskForMath,
+             "Wednesday": taskForEnglish,
+             "Tursday": taskForEnglish,
+             "Friday": taskForEnglish,
+             "Saturday": taskForRest
              }
 
+switchDic.get("Sunday", taskForDefault)()  # 今天休息
+switchDic.get(213, taskForDefault)()  # 输入错误。。。。 测试时，每次都得写.get(xx,taskForDefault)()，所以优化一下
 
-switchDic.get("Sunday",taskForDefault)()   #今天休息
-switchDic.get(213,taskForDefault)()        #输入错误。。。。 测试时，每次都得写.get(xx,taskForDefault)()，所以优化一下
 
-#优化后
+# 优化后
 def switchDicNew(var):
     return {
-            "Sunday":taskForRest,
-            "Monday":taskForChinese,
-            "Tuesday":taskForMath,
-            "Wednesday":taskForEnglish,
-            "Tursday":taskForEnglish,
-            "Friday":taskForEnglish,
-            "Saturday":taskForRest
-    }.get(var,taskForDefault)()
+        "Sunday": taskForRest,
+        "Monday": taskForChinese,
+        "Tuesday": taskForMath,
+        "Wednesday": taskForEnglish,
+        "Tursday": taskForEnglish,
+        "Friday": taskForEnglish,
+        "Saturday": taskForRest
+    }.get(var, taskForDefault)()
+
 
 switchDicNew("Friday")
